@@ -3,7 +3,10 @@ import './VoltAmpSmallAppliance.css';
 import Utils from '../../../utils/Utils';
 
 export default class VoltAmpSmallAppliance extends Component {
-
+  static defaultProps = {
+    volAmpsPer: 1500,
+    requiredSmallApplianceCircuites: 2,
+  }
   render() {
     const css = {
       color: '',
@@ -20,14 +23,10 @@ export default class VoltAmpSmallAppliance extends Component {
           <input 
             className="read-only" 
             disabled
-            value={ this.props.squareFootage * 3 }
+            value={ this.props.volAmpsPer * this.props.requiredSmallApplianceCircuites }
           ></input>Watts
         </div>
       </div>
     );
   }
-}
-
-VoltAmpSmallAppliance.defaultProps = {
-  squareFootage: 0,
 }

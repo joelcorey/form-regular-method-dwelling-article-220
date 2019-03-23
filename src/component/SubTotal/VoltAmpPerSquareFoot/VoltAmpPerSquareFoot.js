@@ -3,7 +3,9 @@ import './VoltAmpPerSquareFoot.css';
 import Utils from '../../../utils/Utils';
 
 export default class VoltAmpPerSquareFoot extends Component {
-
+  static defaultProps = {
+    squareFootage: 0,
+  }
   render() {
     const css = {
       color: '',
@@ -34,8 +36,4 @@ export default class VoltAmpPerSquareFoot extends Component {
       </div>
     );
   }
-}
-
-VoltAmpPerSquareFoot.defaultProps = {
-  squareFootage: 0,
 }
