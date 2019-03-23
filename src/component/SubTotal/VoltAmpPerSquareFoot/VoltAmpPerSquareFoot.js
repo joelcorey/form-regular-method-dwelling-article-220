@@ -3,19 +3,7 @@ import './VoltAmpPerSquareFoot.css';
 import Utils from '../../../utils/Utils';
 
 export default class VoltAmpPerSquareFoot extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      squareFootage: props.squareFootage,
-    }
-    
-  }
-  handleUpdate = (event) => {
-    const { target: { name, value } } = event
-    this.setState({
-      [name]: value
-    })
-  }
+
   render() {
     const className = 'square-footage'
     const squareFootageCss = {
@@ -32,13 +20,14 @@ export default class VoltAmpPerSquareFoot extends Component {
             name="squareFootage"
             className="number" 
             type="number"
-            value={ this.state.squareFootage }
-            onChange={ this.handleUpdate }
+            value={ this.props.squareFootage }
+            onChange={ (e) => this.props.handleUpdateSquareFootage(e.target.value) }
           ></input>
           x 3VA per sq. ft=
           <input 
-            className="read-only" disabled
-            value={ this.state.squareFootage * 3 }
+            className="read-only" 
+            disabled
+            value={ this.props.squareFootage * 3 }
           ></input>
         </p>
       </div>

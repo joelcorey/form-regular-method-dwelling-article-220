@@ -6,15 +6,20 @@ import Header from './component/Header/Header';
 import Guideline from './component/Guideline/Guideline';
 import SubTotal from './component/SubTotal/SubTotal';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       squareFootage: 0,
     }
-    console.log(Utils.watts(2, 4));
+    // console.log(Utils.watts(2, 4));
   }
-  
+  handleUpdateSquareFootage = (event) => {
+    console.log('handleUpdateSquareFootage!');
+    this.setState({
+      squareFootage: event
+    })
+  }
   render() {
     return (
       <main role="main" className="App">
@@ -24,6 +29,7 @@ class App extends Component {
           <hr />
           <SubTotal 
             squareFootage={this.state.squareFootage}
+            handleUpdateSquareFootage={this.handleUpdateSquareFootage}
           />
           
         </section>
@@ -32,5 +38,3 @@ class App extends Component {
   }
 
 }
-
-export default App;
