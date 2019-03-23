@@ -5,6 +5,12 @@ import Header from './component/Header/Header';
 import Guideline from './component/Guideline/Guideline';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squareFootage: 0,
+    }
+  }
   render() {
     return (
       <main role="main" className="App">
