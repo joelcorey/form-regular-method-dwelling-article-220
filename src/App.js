@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
 import './App.css';
+import Utils from './utils/Utils';
 
 import Header from './component/Header/Header';
 import Guideline from './component/Guideline/Guideline';
-import Utils from './utils/Utils';
+import SubTotal from './component/SubTotal/SubTotal';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      squareFootage: Utils.squareFootage(2, 4),
+      squareFootage: 0,
     }
     console.log(Utils.watts(2, 4));
   }
+  
   render() {
     return (
       <main role="main" className="App">
         <Header title={this.props.title} />
         <section>
-        <Guideline guideline="Lighting includes general receptable outlets" />
-        <hr />
+          <Guideline guideline="Lighting includes general receptable outlets" />
+          <hr />
+          <SubTotal 
+            squareFootage={this.state.squareFootage}
+          />
+          
         </section>
       </main>
     );
   }
+
 }
 
 export default App;

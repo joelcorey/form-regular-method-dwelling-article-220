@@ -1,0 +1,34 @@
+.square-footage {
+  display: flex;
+}
+.square-footage input {
+  margin: 0 1%;
+  width: 10%
+}
+
+.square-footage p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.read-only {
+  cursor: not-allowed;
+}
+
+/* disable number spinners in input type number */
+.square-footage input[type=number]::-webkit-inner-spin-button, 
+.square-footage input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Firefox: disable number spinners in input type number */
+.square-footage input[type=number] {
+  -moz-appearance:textfield;
+}
+
+/* Need to restyle disabled input text to black */
+.square-footage input {
+  color: black;
+}
