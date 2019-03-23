@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Utils from './utils/Utils';
+// import Utils from './utils/Utils';
 
 import Header from './component/Header/Header';
 import Guideline from './component/Guideline/Guideline';
@@ -11,13 +11,20 @@ export default class App extends Component {
     super(props);
     this.state = {
       squareFootage: 0,
+      total: 0,
     }
     // console.log(Utils.watts(2, 4));
   }
-  handleUpdateSquareFootage = (event) => {
+  handleUpdateSquareFootage = (value) => {
     console.log('handleUpdateSquareFootage!');
     this.setState({
-      squareFootage: event
+      squareFootage: value
+    })
+  }
+  handleUpdateTotal = (toAdd) => {
+    const newTotal = this.state.total + toAdd;
+    this.setState({
+      total: newTotal
     })
   }
   render() {

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-export default class VoltAmpPerSquareFoot extends Component {
+export default class VoltAmpLaundry extends Component {
   static defaultProps = {
-    squareFootage: 2000,
+    volAmpsPer: 1500,
+    requiredSmallApplianceCircuites: 1,
   }
   render() {
     const css = {
@@ -14,21 +15,13 @@ export default class VoltAmpPerSquareFoot extends Component {
     return (
       <div style={css} className='calc-container'>
         <div className='calc-left'>
-          Square footage
-            <input 
-              name="squareFootage"
-              className="number" 
-              type="number"
-              value={ this.props.squareFootage }
-              onChange={ (e) => this.props.handleUpdateSquareFootage(e.target.value) }
-            ></input>
-            x 3VA per sq. ft = 
+          Laundry circuit
         </div>
         <div className='calc-right'>
           <input 
             className="read-only" 
             disabled
-            value={ this.props.squareFootage * 3 }
+            value={ this.props.volAmpsPer * this.props.requiredSmallApplianceCircuites }
           ></input>Watts
         </div>
       </div>

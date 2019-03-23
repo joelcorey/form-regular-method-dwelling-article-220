@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
-export default class VoltAmpSmallAppliance extends Component {
-  static defaultProps = {
-    volAmpsPer: 1500,
-    requiredSmallApplianceCircuites: 2,
-  }
+export default class VoltAmpTotal extends Component {
   render() {
     const css = {
       color: '',
@@ -15,13 +11,13 @@ export default class VoltAmpSmallAppliance extends Component {
     return (
       <div style={css} className='calc-container'>
         <div className='calc-left'>
-          Two required small appliance circuits
+          sub-total
         </div>
         <div className='calc-right'>
           <input 
             className="read-only" 
             disabled
-            value={ this.props.volAmpsPer * this.props.requiredSmallApplianceCircuites }
+            value={ this.props.total }
           ></input>Watts
         </div>
       </div>
