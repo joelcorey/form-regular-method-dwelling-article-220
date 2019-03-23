@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import './Header.css';
 
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        
-        </header>
-      </div>
+      <header>
+        <p>Form For Regular Method</p>
+        <p>On Dwelling Article 220</p>
+      </header>
     );
   }
 }
