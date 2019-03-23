@@ -3,13 +3,15 @@ import './App.css';
 
 import Header from './component/Header/Header';
 import Guideline from './component/Guideline/Guideline';
+import Utils from './utils/Utils';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      squareFootage: 0,
+      squareFootage: Utils.squareFootage(2, 4),
     }
+    console.log(Utils.watts(2, 4));
   }
   render() {
     return (
