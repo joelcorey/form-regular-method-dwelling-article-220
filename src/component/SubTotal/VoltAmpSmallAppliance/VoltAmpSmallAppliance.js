@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './VoltAmpPerSquareFoot.css';
+import './VoltAmpSmallAppliance.css';
 import Utils from '../../../utils/Utils';
 
-export default class VoltAmpPerSquareFoot extends Component {
+export default class VoltAmpSmallAppliance extends Component {
 
   render() {
     const css = {
@@ -14,15 +14,7 @@ export default class VoltAmpPerSquareFoot extends Component {
     return (
       <div style={css} className='calc-container'>
         <div className='calc-left'>
-          Square footage
-            <input 
-              name="squareFootage"
-              className="number" 
-              type="number"
-              value={ this.props.squareFootage }
-              onChange={ (e) => this.props.handleUpdateSquareFootage(e.target.value) }
-            ></input>
-            x 3VA per sq. ft = 
+          Two required small appliance circuits
         </div>
         <div className='calc-right'>
           <input 
@@ -36,6 +28,6 @@ export default class VoltAmpPerSquareFoot extends Component {
   }
 }
 
-VoltAmpPerSquareFoot.defaultProps = {
+VoltAmpSmallAppliance.defaultProps = {
   squareFootage: 0,
 }

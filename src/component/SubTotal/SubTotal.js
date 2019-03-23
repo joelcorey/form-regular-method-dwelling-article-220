@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './SubTotal.css';
 
 import VoltAmpPerSquareFoot from './VoltAmpPerSquareFoot/VoltAmpPerSquareFoot';
+import VoltAmpSmallAppliance from './VoltAmpSmallAppliance/VoltAmpSmallAppliance';
 
 export default class SubTotal extends Component {
 
   render() {
     return (
-      <section role="contentinfo" className="">
+      <>
         <VoltAmpPerSquareFoot
           squareFootage={this.props.squareFootage}
           requiredSmallApplianceCircuites={this.props.requiredSmallApplianceCircuites}
@@ -15,7 +16,8 @@ export default class SubTotal extends Component {
           laundryCircuitVoltAmps={this.props.laundryCircuitVoltAmps}
           handleUpdateSquareFootage={this.props.handleUpdateSquareFootage}
         />
-      </section>
+        <VoltAmpSmallAppliance numberSmallApplianceCircuits={this.props.requiredSmallApplianceCircuites} />
+      </>
     );
   }
   
