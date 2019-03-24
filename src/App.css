@@ -21,7 +21,7 @@ hr {
 }
 
 .calc-left {
-  width: 30vw;
+  width: 50vw;
   display: flex;
   justify-content: flex-end;
   /* background-color: salmon; */

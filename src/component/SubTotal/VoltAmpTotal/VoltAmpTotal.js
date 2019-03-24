@@ -11,7 +11,7 @@ export default class VoltAmpTotal extends Component {
     return (
       <div style={css} className='calc-container'>
         <div className='calc-left'>
-          sub-total
+          sub-total = 
         </div>
         <div className='calc-right'>
           <input 
