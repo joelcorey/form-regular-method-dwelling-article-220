@@ -14,8 +14,8 @@ export default class App extends Component {
       voltAmpsPerSquareFoot: 3,
       squareFootageVoltAmps: 0,
       //
-      voltAmpsPerSmallAppliance: 1500,
       requiredSmallApplianceCircuites: 2,
+      voltAmpsPerSmallAppliance: 1500,
       smallAppliaceVoltAmps: 0,
       //
       total: 0,
@@ -47,10 +47,9 @@ export default class App extends Component {
     let value = parseInt(e.target.value);
     this.setState(
       { [key]: value },
-      // Update squareFootageVoltAmps after async operation is done:
+      // Update other state after async operation is done:
       () => {
-      this.handleUpdateSquareFootageVoltAmps()
-      
+        this.handleUpdateSquareFootageVoltAmps()
       }
     )
   }
@@ -59,6 +58,36 @@ export default class App extends Component {
       this.state.voltAmpsPerSquareFoot * 
       this.state.squareFootage
     this.setState({ squareFootageVoltAmps: newSquareFootageVoltAmps, },
+      () => this.handleUpdateTotal()
+    )
+  }
+  handleUpdateRequiredSmallApplianceCircuites = (e) => {
+    let key = e.target.name;
+    let value = parseInt(e.target.value);
+    this.setState(
+      { [key]: value },
+      // Update other state after async operation is done:
+      () => {
+        this.handleUpdateSmallAppliaceVoltAmps()
+      }
+    )
+  }
+  handleUpdateVoltAmpsPerSmallAppliance = (e) => {
+    let key = e.target.name;
+    let value = parseInt(e.target.value);
+    this.setState(
+      { [key]: value },
+      // Update other state after async operation is done:
+      () => {
+        this.handleUpdateSmallAppliaceVoltAmps()
+      }
+    )
+  }
+  handleUpdateSmallAppliaceVoltAmps = () => {
+    let newSmallAppliaceVoltAmps = 
+      this.state.requiredSmallApplianceCircuites *
+      this.state.voltAmpsPerSmallAppliance
+    this.setState({ smallAppliaceVoltAmps: newSmallAppliaceVoltAmps },
       () => this.handleUpdateTotal()
     )
   }
@@ -84,6 +113,7 @@ export default class App extends Component {
           <Guideline guideline="Lighting includes general receptable outlets" />
           <hr />
           <SubTotal 
+            //
             squareFootage={this.state.squareFootage}
             voltAmpsPerSquareFoot={this.state.voltAmpsPerSquareFoot}
             squareFootageVoltAmps={this.state.squareFootageVoltAmps}
@@ -93,7 +123,8 @@ export default class App extends Component {
             voltAmpsPerSmallAppliance={this.state.voltAmpsPerSmallAppliance}
             requiredSmallApplianceCircuites={this.state.requiredSmallApplianceCircuites}
             smallAppliaceVoltAmps={this.state.smallAppliaceVoltAmps}
-            // handleUpdateSmallAppliaceVoltAmps={this.handleUpdateSmallAppliaceVoltAmps}
+            handleUpdateRequiredSmallApplianceCircuites={this.handleUpdateRequiredSmallApplianceCircuites}
+            handleUpdateVoltAmpsPerSmallAppliance={this.handleUpdateVoltAmpsPerSmallAppliance}
             // 
             handleUpdate={this.handleUpdate}
             
