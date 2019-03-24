@@ -29,6 +29,8 @@ export default class SubTotal extends Component {
           requiredLaundryCircuits={this.props.requiredLaundryCircuits}
           voltAmpsPerLaundryCircuit={this.props.voltAmpsPerLaundryCircuit}
           laundryCircuitVoltAmps={this.props.laundryCircuitVoltAmps}
+
+          
         />
         <VoltAmpTotal 
           total={this.props.total} 

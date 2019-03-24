@@ -99,6 +99,38 @@ export default class App extends Component {
       () => this.handleUpdateTotal()
     )
   }
+  // requiredLaundryCircuits: 1,
+  // voltAmpsPerLaundryCircuit: 1500,
+  handleUpdateRequiredLaundryCircuits = (e) => {
+    let key = e.target.name;
+    let value = parseInt(e.target.value);
+    this.setState(
+      { [key]: value },
+      // Update other state after async operation is done:
+      () => {
+        this.handleUpdateLaundryCircuitVoltAmps()
+      }
+    )
+  }
+  handleUpdateVoltAmpsPerLaundryCircuit = (e) => {
+    let key = e.target.name;
+    let value = parseInt(e.target.value);
+    this.setState(
+      { [key]: value },
+      // Update other state after async operation is done:
+      () => {
+        this.handleUpdateLaundryCircuitVoltAmps()
+      }
+    )
+  }
+  handleUpdateLaundryCircuitVoltAmps = () => {
+    let newSmallAppliaceVoltAmps = 
+      this.state.requiredLaundryCircuits *
+      this.state.voltAmpsPerLaundryCircuit
+    this.setState({ smallAppliaceVoltAmps: newSmallAppliaceVoltAmps },
+      () => this.handleUpdateTotal()
+    )
+  }
   handleUpdateTotal = () => {
     let newTotal = 
       this.state.squareFootageVoltAmps +
@@ -137,6 +169,8 @@ export default class App extends Component {
             requiredLaundryCircuits={this.state.requiredLaundryCircuits}
             voltAmpsPerLaundryCircuit={this.state.voltAmpsPerLaundryCircuit}
             laundryCircuitVoltAmps={this.state.laundryCircuitVoltAmps}
+
+
             //
             handleUpdate={this.handleUpdate}
             
