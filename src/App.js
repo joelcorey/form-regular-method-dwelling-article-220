@@ -18,6 +18,10 @@ export default class App extends Component {
       voltAmpsPerSmallAppliance: 1500,
       smallAppliaceVoltAmps: 0,
       //
+      requiredLaundryCircuits: 1,
+      voltAmpsPerLaundryCircuit: 1500,
+      laundryCircuitVoltAmps: 0,
+      //
       total: 0,
     }
     // console.log(Utils.watts(2, 4));
@@ -29,9 +33,13 @@ export default class App extends Component {
     let newSmallApplianceVoltAmps = 
       this.state.voltAmpsPerSmallAppliance *
       this.state.requiredSmallApplianceCircuites
+    let newLaundryCircuitVoltAmps =
+      this.state.requiredLaundryCircuit *
+      this.state.voltAmpsPerLaundryCircuit
     this.setState({
       squareFootageVoltAmps: newSquareFootageVoltAmps,
       smallAppliaceVoltAmps: newSmallApplianceVoltAmps,
+      laundryCircuitVoltAmps: newLaundryCircuitVoltAmps
     })
   }
   componentDidMount() {
@@ -125,7 +133,11 @@ export default class App extends Component {
             smallAppliaceVoltAmps={this.state.smallAppliaceVoltAmps}
             handleUpdateRequiredSmallApplianceCircuites={this.handleUpdateRequiredSmallApplianceCircuites}
             handleUpdateVoltAmpsPerSmallAppliance={this.handleUpdateVoltAmpsPerSmallAppliance}
-            // 
+            //
+            requiredLaundryCircuits={this.state.requiredLaundryCircuits}
+            voltAmpsPerLaundryCircuit={this.state.voltAmpsPerLaundryCircuit}
+            laundryCircuitVoltAmps={this.state.laundryCircuitVoltAmps}
+            //
             handleUpdate={this.handleUpdate}
             
           />

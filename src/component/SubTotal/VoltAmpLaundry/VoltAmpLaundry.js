@@ -1,32 +1,6 @@
 import React, { Component } from 'react';
 
 export default class VoltAmpLaundry extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      voltAmpsPer: this.props.voltAmpsPer,
-      requiredCircuits: this.props.requiredCircuits,
-      total: 0,
-    }
-  }
-  // getTotal() {
-  //   return this.state.voltAmpsPer * this.state.requiredCircuits;
-  // }
-  
-  // componentDidMount() {
-  //   const newTotal = this.getTotal();
-  //   this.setState({
-  //     total: newTotal,
-  //   })
-  //   this.props.handleUpdateTotal(this.state.total);
-  // }
-  // compoenentDidUpdate() {
-  //   this.setState({
-  //     total: this.state.voltAmpsPer * this.state.requiredCircuits
-  //   })
-  //   this.props.handleUpdateTotal(this.state.total);
-  // }
-
   render() {
     const css = {
       color: '',
@@ -34,26 +8,36 @@ export default class VoltAmpLaundry extends Component {
       padding: '1%',
       margin: 0,
     }
-    
     return (
       <div style={css} className='calc-container'>
         <div className='calc-left'>
-          Laundry circuit
+          <input 
+            name="requiredLaundryCircuits"
+            className="number" 
+            type="number"
+            value={ this.props.requiredLaundryCircuits }
+            onChange={ (e) => this.props.handleUpdateRequiredSmallApplianceCircuites(e) }
+          ></input>
+          required laundry circuit at
+          <input 
+            name="voltAmpsPerSmallAppliance"
+            className="number" 
+            type="number"
+            value={ this.props.voltAmpsPerLaundryCircuit }
+            onChange={ (e) => this.props.handleUpdateVoltAmpsPerSmallAppliance(e) }
+          ></input>
+          Watts = 
         </div>
         <div className='calc-right'>
-          <input 
-            className="read-only number" 
+          <input
+            name="smallApplianceVoltAmps"
+            className="read-only number"
             type="number"
             disabled
-            value={ this.state.total }
+            value={ this.props.laundryCircuitVoltAmps }
           ></input>Watts
         </div>
       </div>
     );
   }
-}
-
-VoltAmpLaundry.defaultProps = {
-  voltAmpsPer: 1500,
-  requiredCircuits: 1,
 }
