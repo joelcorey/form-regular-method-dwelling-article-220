@@ -174,7 +174,8 @@ export default class App extends Component {
             handleUpdateRequiredLaundryCircuits={this.handleUpdateRequiredLaundryCircuits}
             handleUpdateVoltAmpsPerLaundryCircuit={this.handleUpdateVoltAmpsPerLaundryCircuit}
             //
-            handleUpdate={this.handleUpdate}
+            
+            total={this.state.total}
             
           />
           
