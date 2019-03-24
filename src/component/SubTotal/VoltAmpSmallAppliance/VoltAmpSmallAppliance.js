@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 export default class VoltAmpSmallAppliance extends Component {
-  static defaultProps = {
-    volAmpsPer: 1500,
-    requiredSmallApplianceCircuites: 2,
-  }
   render() {
     const css = {
       color: '',
@@ -15,14 +11,29 @@ export default class VoltAmpSmallAppliance extends Component {
     return (
       <div style={css} className='calc-container'>
         <div className='calc-left'>
-          Two required small appliance circuits
+          <input 
+            name="requiredSmallApplianceCircuites"
+            className="number" 
+            type="number"
+            value={ this.props.requiredSmallApplianceCircuites }
+            onChange={ (e) => this.props.handleUpdate(e) }
+          ></input>
+          required small appliance circuits at
+          <input 
+            name="voltAmpsPerSmallAppliance"
+            className="number" 
+            type="number"
+            value={ this.props.voltAmpsPerSmallAppliance }
+            onChange={ (e) => this.props.handleUpdate(e) }
+          ></input>
+          Watts = 
         </div>
         <div className='calc-right'>
           <input 
-            className="read-only number"
+            className="number"
             type="number"
-            disabled
-            value={ this.props.volAmpsPer * this.props.requiredSmallApplianceCircuites }
+            value={ this.props.voltAmpsPerSmallAppliance * this.props.requiredSmallApplianceCircuites }
+            onChange={ (e) => this.props.handleUpdateTotal(e.target.value) }
           ></input>Watts
         </div>
       </div>

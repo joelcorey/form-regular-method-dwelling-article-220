@@ -14,7 +14,12 @@ export default class SubTotal extends Component {
           squareFootage={this.props.squareFootage}
           handleUpdateSquareFootage={this.props.handleUpdateSquareFootage}
         />
-        <VoltAmpSmallAppliance />
+        <VoltAmpSmallAppliance 
+          voltAmpsPerSmallAppliance={this.props.voltAmpsPerSmallAppliance}
+          requiredSmallApplianceCircuites={this.props.requiredSmallApplianceCircuites}
+          handleUpdate={this.props.handleUpdate}
+          handleUpdateTotal={this.props.handleUpdateTotal}
+        />
         <VoltAmpLaundry 
           handleUpdateTotal={this.props.handleUpdateTotal}
         />

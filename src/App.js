@@ -11,24 +11,38 @@ export default class App extends Component {
     super(props);
     this.state = {
       squareFootage: 2000,
+      voltAmpsPerSmallAppliance: 1500,
+      requiredSmallApplianceCircuites: 2,
+      // smallApplianceWatts: this.volAmpsPerSmallAppliance * this.requiredSmallApplianceCircuites,
       total: 0,
     }
     // console.log(Utils.watts(2, 4));
   }
   handleUpdateSquareFootage = (value) => {
-    console.log('handleUpdateSquareFootage!');
+    value = parseInt(value);
     this.setState({
-      squareFootage: value
+      squareFootage: value,
+      requiredSmallApplianceCircuites: 2,
+      voltAmpsPerSmallAppliance: 1500,
+      total: value * 3
     })
   }
   handleUpdateTotal = (toAdd) => {
     console.log('handleUpdateTotal!')
-    const newTotal = this.state.total + toAdd;
+    // const newTotal = this.state.total + parseInt(toAdd);
     this.setState({
-      total: newTotal
+      total: 1
+    })
+  }
+  handleUpdate = (e) => {
+    let key = e.target.name;
+    let value = e.target.value;
+    this.setState({
+      [key]: value
     })
   }
   render() {
+    //console.log('type of this.state.squareFootage: ' + typeof this.state.squareFootage)
     return (
       <main role="main" className="App">
         <Header title={this.props.title} />
@@ -37,6 +51,10 @@ export default class App extends Component {
           <hr />
           <SubTotal 
             squareFootage={this.state.squareFootage}
+            voltAmpsPerSmallAppliance={this.state.voltAmpsPerSmallAppliance}
+            requiredSmallApplianceCircuites={this.state.requiredSmallApplianceCircuites}
+            total={this.state.total}
+            handleUpdate={this.handleUpdate}
             handleUpdateSquareFootage={this.handleUpdateSquareFootage}
             handleUpdateTotal={this.handleUpdateTotal}
           />

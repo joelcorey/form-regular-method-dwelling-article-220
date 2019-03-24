@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class VoltAmpPerSquareFoot extends Component {
-
   render() {
     const css = {
       backgroundColor: '#778899',
