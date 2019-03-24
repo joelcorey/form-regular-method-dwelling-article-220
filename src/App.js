@@ -125,10 +125,10 @@ export default class App extends Component {
     )
   }
   handleUpdateLaundryCircuitVoltAmps = () => {
-    let newSmallAppliaceVoltAmps = 
+    let newLaundryCircuitVoltAmps = 
       this.state.requiredLaundryCircuits *
       this.state.voltAmpsPerLaundryCircuit
-    this.setState({ smallAppliaceVoltAmps: newSmallAppliaceVoltAmps },
+    this.setState({ laundryCircuitVoltAmps: newLaundryCircuitVoltAmps },
       () => this.handleUpdateTotal()
     )
   }

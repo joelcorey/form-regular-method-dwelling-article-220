@@ -20,7 +20,7 @@ export default class VoltAmpLaundry extends Component {
           ></input>
           required laundry circuit at
           <input 
-            name="voltAmpsPerSmallAppliance"
+            name="voltAmpsPerLaundryCircuit"
             className="number" 
             type="number"
             value={ this.props.voltAmpsPerLaundryCircuit }
