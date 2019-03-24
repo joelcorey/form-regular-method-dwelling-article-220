@@ -46,10 +46,11 @@ export default class App extends Component {
     let key = e.target.name;
     let value = parseInt(e.target.value);
     this.setState(
-      { [key]: value},
+      { [key]: value },
       // Update squareFootageVoltAmps after async operation is done:
       () => {
       this.handleUpdateSquareFootageVoltAmps()
+      
       }
     )
   }
@@ -57,25 +58,24 @@ export default class App extends Component {
     let newSquareFootageVoltAmps = 
       this.state.voltAmpsPerSquareFoot * 
       this.state.squareFootage
+    this.setState({ squareFootageVoltAmps: newSquareFootageVoltAmps, },
+      () => this.handleUpdateTotal()
+    )
+  }
+  handleUpdateTotal = () => {
+    let newTotal = 
+      this.state.squareFootageVoltAmps +
+      this.state.smallAppliaceVoltAmps
     this.setState({
-      squareFootageVoltAmps: newSquareFootageVoltAmps,
+      total: newTotal,
     })
   }
-  handleUpdate = (e) => {
-    let key = e.target.name;
-    let value = parseInt(e.target.value);
+  handleUpdate = (event, callback) => {
+    let key = event.target.name;
+    let value = parseInt(event.target.value);
     console.log(`handleUpdate() key: ${key}, value: ${value}`)
-    this.setState({
-      [key]: value
-    })
+    this.setState({ [key]: value })
   }
-  // handleUpdateSmallAppliaceVoltAmps = (e) => {
-  //   let newSmallApplianceVoltAmps = 
-  //     this.state.voltAmpsPerSmallAppliance *
-  //     this.state.requiredSmallApplianceCircuites
-    
-
-  // }
   render() {
     return (
       <main role="main" className="App">
