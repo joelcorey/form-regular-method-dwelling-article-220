@@ -42,7 +42,8 @@ export default class VoltAmpLaundry extends Component {
         </div>
         <div className='calc-right'>
           <input 
-            className="read-only" 
+            className="read-only number" 
+            type="number"
             disabled
             value={ this.state.total }
           ></input>Watts
