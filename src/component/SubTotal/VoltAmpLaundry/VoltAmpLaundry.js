@@ -16,7 +16,7 @@ export default class VoltAmpLaundry extends Component {
             className="number" 
             type="number"
             value={ this.props.requiredLaundryCircuits }
-            onChange={ (e) => this.props.handleUpdateRequiredSmallApplianceCircuites(e) }
+            onChange={ (e) => this.props.handleUpdateRequiredLaundryCircuits(e) }
           ></input>
           required laundry circuit at
           <input 
@@ -24,7 +24,7 @@ export default class VoltAmpLaundry extends Component {
             className="number" 
             type="number"
             value={ this.props.voltAmpsPerLaundryCircuit }
-            onChange={ (e) => this.props.handleUpdateVoltAmpsPerSmallAppliance(e) }
+            onChange={ (e) => this.props.handleUpdateVoltAmpsPerLaundryCircuit(e) }
           ></input>
           Watts = 
         </div>

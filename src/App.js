@@ -34,7 +34,7 @@ export default class App extends Component {
       this.state.voltAmpsPerSmallAppliance *
       this.state.requiredSmallApplianceCircuites
     let newLaundryCircuitVoltAmps =
-      this.state.requiredLaundryCircuit *
+      this.state.requiredLaundryCircuits *
       this.state.voltAmpsPerLaundryCircuit
     this.setState({
       squareFootageVoltAmps: newSquareFootageVoltAmps,
@@ -45,7 +45,8 @@ export default class App extends Component {
   componentDidMount() {
     let newTotal = 
       this.state.squareFootageVoltAmps +
-      this.state.smallAppliaceVoltAmps
+      this.state.smallAppliaceVoltAmps +
+      this.state.laundryCircuitVoltAmps
     this.setState({
       total: newTotal,
     })
@@ -69,6 +70,7 @@ export default class App extends Component {
       () => this.handleUpdateTotal()
     )
   }
+  //
   handleUpdateRequiredSmallApplianceCircuites = (e) => {
     let key = e.target.name;
     let value = parseInt(e.target.value);
@@ -99,8 +101,7 @@ export default class App extends Component {
       () => this.handleUpdateTotal()
     )
   }
-  // requiredLaundryCircuits: 1,
-  // voltAmpsPerLaundryCircuit: 1500,
+  //
   handleUpdateRequiredLaundryCircuits = (e) => {
     let key = e.target.name;
     let value = parseInt(e.target.value);
@@ -134,7 +135,8 @@ export default class App extends Component {
   handleUpdateTotal = () => {
     let newTotal = 
       this.state.squareFootageVoltAmps +
-      this.state.smallAppliaceVoltAmps
+      this.state.smallAppliaceVoltAmps + 
+      this.state.laundryCircuitVoltAmps
     this.setState({
       total: newTotal,
     })
@@ -169,8 +171,8 @@ export default class App extends Component {
             requiredLaundryCircuits={this.state.requiredLaundryCircuits}
             voltAmpsPerLaundryCircuit={this.state.voltAmpsPerLaundryCircuit}
             laundryCircuitVoltAmps={this.state.laundryCircuitVoltAmps}
-
-
+            handleUpdateRequiredLaundryCircuits={this.handleUpdateRequiredLaundryCircuits}
+            handleUpdateVoltAmpsPerLaundryCircuit={this.handleUpdateVoltAmpsPerLaundryCircuit}
             //
             handleUpdate={this.handleUpdate}
             
