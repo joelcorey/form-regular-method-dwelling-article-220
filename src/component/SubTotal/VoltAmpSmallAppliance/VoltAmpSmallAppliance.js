@@ -30,10 +30,10 @@ export default class VoltAmpSmallAppliance extends Component {
         </div>
         <div className='calc-right'>
           <input
-            name="total"
+            name="smallApplianceVoltAmps"
             className="number"
             type="number"
-            value={ this.props.voltAmpsPerSmallAppliance * this.props.requiredSmallApplianceCircuites }
+            value={ this.props.smallAppliaceVoltAmps }
             onChange={ (e) => this.props.handleUpdate(e) }
           ></input>Watts
         </div>
