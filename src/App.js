@@ -10,7 +10,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      squareFootage: 0,
+      squareFootage: 2000,
       total: 0,
     }
     // console.log(Utils.watts(2, 4));
@@ -22,6 +22,7 @@ export default class App extends Component {
     })
   }
   handleUpdateTotal = (toAdd) => {
+    console.log('handleUpdateTotal!')
     const newTotal = this.state.total + toAdd;
     this.setState({
       total: newTotal
@@ -37,6 +38,7 @@ export default class App extends Component {
           <SubTotal 
             squareFootage={this.state.squareFootage}
             handleUpdateSquareFootage={this.handleUpdateSquareFootage}
+            handleUpdateTotal={this.handleUpdateTotal}
           />
           
         </section>

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
 export default class VoltAmpPerSquareFoot extends Component {
-  static defaultProps = {
-    squareFootage: 2000,
-  }
+
   render() {
     const css = {
-      color: '',
       backgroundColor: '#778899',
       padding: '1%',
       margin: 0,
@@ -26,7 +23,8 @@ export default class VoltAmpPerSquareFoot extends Component {
         </div>
         <div className='calc-right'>
           <input 
-            className="read-only" 
+            className="read-only number" 
+            type="number"
             disabled
             value={ this.props.squareFootage * 3 }
           ></input>Watts

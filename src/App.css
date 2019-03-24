@@ -15,7 +15,9 @@ hr {
 
 .calc-container {
   display: flex;
-  
+  background-color: '#778899';
+  padding: '1%';
+  margin: 0;
 }
 
 .calc-left {
