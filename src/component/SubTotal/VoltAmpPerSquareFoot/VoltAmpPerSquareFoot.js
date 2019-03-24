@@ -16,16 +16,18 @@ export default class VoltAmpPerSquareFoot extends Component {
               className="number" 
               type="number"
               value={ this.props.squareFootage }
-              onChange={ (e) => this.props.handleUpdateSquareFootage(e.target.value) }
+              onChange={ (e) => this.props.handleUpdate(e) }
             ></input>
-            x 3VA per sq. ft = 
+            x {this.props.voltAmpsPerSquareFoot}VA per sq. ft = 
         </div>
         <div className='calc-right'>
           <input 
+            name="squareFootageVoltAmps"
             className="read-only number" 
             type="number"
             disabled
-            value={ this.props.squareFootage * 3 }
+            value={ this.props.squareFootageVoltAmps }
+            onChange={ (e) => this.props.handleUpdate(e) }
           ></input>Watts
         </div>
       </div>

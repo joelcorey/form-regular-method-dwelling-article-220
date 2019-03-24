@@ -9,23 +9,23 @@ export default class VoltAmpLaundry extends Component {
       total: 0,
     }
   }
-  getTotal() {
-    return this.state.voltAmpsPer * this.state.requiredCircuits;
-  }
+  // getTotal() {
+  //   return this.state.voltAmpsPer * this.state.requiredCircuits;
+  // }
   
-  componentDidMount() {
-    const newTotal = this.getTotal();
-    this.setState({
-      total: newTotal,
-    })
-    this.props.handleUpdateTotal(this.state.total);
-  }
-  compoenentDidUpdate() {
-    this.setState({
-      total: this.state.voltAmpsPer * this.state.requiredCircuits
-    })
-    this.props.handleUpdateTotal(this.state.total);
-  }
+  // componentDidMount() {
+  //   const newTotal = this.getTotal();
+  //   this.setState({
+  //     total: newTotal,
+  //   })
+  //   this.props.handleUpdateTotal(this.state.total);
+  // }
+  // compoenentDidUpdate() {
+  //   this.setState({
+  //     total: this.state.voltAmpsPer * this.state.requiredCircuits
+  //   })
+  //   this.props.handleUpdateTotal(this.state.total);
+  // }
 
   render() {
     const css = {

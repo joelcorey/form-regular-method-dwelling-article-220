@@ -11,32 +11,26 @@ export default class App extends Component {
     super(props);
     this.state = {
       squareFootage: 2000,
+      voltAmpsPerSquareFoot: 3,
+      squareFootageVoltAmps: 0,
       voltAmpsPerSmallAppliance: 1500,
+      
       requiredSmallApplianceCircuites: 2,
       // smallApplianceWatts: this.volAmpsPerSmallAppliance * this.requiredSmallApplianceCircuites,
       total: 0,
     }
     // console.log(Utils.watts(2, 4));
   }
-  handleUpdateSquareFootage = (value) => {
-    value = parseInt(value);
-    this.setState({
-      squareFootage: value,
-      requiredSmallApplianceCircuites: 2,
-      voltAmpsPerSmallAppliance: 1500,
-      total: value * 3
-    })
-  }
-  handleUpdateTotal = (toAdd) => {
-    console.log('handleUpdateTotal!')
-    // const newTotal = this.state.total + parseInt(toAdd);
-    this.setState({
-      total: 1
-    })
-  }
+  // componentWillMount() {
+  //   let newSquareFootageVoltAmps = this.state.voltAmpsPerSquareFoot * this.state.squareFootage
+  //   this.setState({
+  //     squareFootageVoltAmps: newSquareFootageVoltAmps
+  //   })
+  // }
   handleUpdate = (e) => {
     let key = e.target.name;
-    let value = e.target.value;
+    let value = parseInt(e.target.value);
+    console.log(`handleUpdate() key: ${key}, value: ${value}`)
     this.setState({
       [key]: value
     })
@@ -51,12 +45,14 @@ export default class App extends Component {
           <hr />
           <SubTotal 
             squareFootage={this.state.squareFootage}
+            voltAmpsPerSquareFoot={this.state.voltAmpsPerSquareFoot}
+            squareFootageVoltAmps={this.state.squareFootageVoltAmps}
+            // 
             voltAmpsPerSmallAppliance={this.state.voltAmpsPerSmallAppliance}
             requiredSmallApplianceCircuites={this.state.requiredSmallApplianceCircuites}
-            total={this.state.total}
+            // 
             handleUpdate={this.handleUpdate}
-            handleUpdateSquareFootage={this.handleUpdateSquareFootage}
-            handleUpdateTotal={this.handleUpdateTotal}
+            
           />
           
         </section>
