@@ -21,12 +21,12 @@ export default class App extends Component {
     }
     // console.log(Utils.watts(2, 4));
   }
-  // componentWillMount() {
-  //   let newSquareFootageVoltAmps = this.state.voltAmpsPerSquareFoot * this.state.squareFootage
-  //   this.setState({
-  //     squareFootageVoltAmps: newSquareFootageVoltAmps
-  //   })
-  // }
+  componentWillMount() {
+    let newSquareFootageVoltAmps = this.state.voltAmpsPerSquareFoot * this.state.squareFootage
+    this.setState({
+      squareFootageVoltAmps: newSquareFootageVoltAmps
+    })
+  }
   handleUpdate = (e) => {
     let key = e.target.name;
     let value = parseInt(e.target.value);
